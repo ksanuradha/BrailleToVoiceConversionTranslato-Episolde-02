@@ -1,25 +1,70 @@
 <html>
-	<head>
-	<script>
-	   function previewFile(){
-		   var preview = document.querySelector('img'); //selects the query named img
-		   var file    = document.querySelector('input[type=file]').files[0]; //sames as here
-		   var reader  = new FileReader();
+<head>
+<link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="./css/radiobuttons.css">
+<script type="text/javascript" src="./js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript" src="./js/jquery.min.js"></script>
+<script type="text/javascript" src="./js/upload.js"></script>
+<script type="text/javascript" src="./js/scan.js"></script>
+</head>
+<body>
+	<center>
+		<h3 style="padding-top: 10px;">Brailee Reader</h3>
+	</center>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<div class="form-group">
+				<form id="upload-file-form">
+					<label for="upload-file-input">Step 01: Upload an Image</label> <input
+						id="upload-file-input" style="width: 50%;" type="file" class="form-control" name="uploadfile"
+						accept="image/*" />
+				</form> 
+			</div>
+			<div class="form-group">
+				<label for="email">Step 02: Scan the Image</label> <label
+					for="email" style="padding-left: 210px;">Step 03: Select
+					the Language</label><br>
+				<button type="submit" value="Import" class="btn btn-success"
+					id="btnContactUs">Scan Image</button>
 
-		   reader.onloadend = function () {
-			   preview.src = reader.result;
-		   }
+				<input style="margin-right: 253px; visibility: hidden" type="radio"
+					id="contactChoice1" name="contact" value="email" checked> <input
+					type="radio" id="contactChoice1" name="contact" value="email"
+					checked> <label
+					style="font-family: Helvetica Neue Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.4"
+					for="contactChoice1">Sinhala</label> <input type="radio"
+					id="contactChoice2" name="contact" value="phone"> <label
+					style="font-family: Helvetica Neue Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.4"
+					for="contactChoice2">English</label>
 
-		   if (file) {
-			   reader.readAsDataURL(file); //reads the data as a URL
-		   } else {
-			   preview.src = "";
-		   }
-	  }
-  </script>
-	</head>
-	<body>
-		<input type="file" onchange="previewFile()"><br>
-		<img src="" height="200" alt="">
-	</body>
+			</div>
+			<div class="form-group">
+				<table style="width: 100%">
+					<tr>
+						<td><label
+							style="font-family: Helvetica Neue Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.4"
+							for="name"> Optional: Project Name</label></td>
+						<td><label
+							style="font-family: Helvetica Neue Helvetica, Arial, sans-serif; font-size: 14px; line-height: 1.4; margin-left: 0px;"
+							for="name"> Step 04: Listen the Doc </label></td>
+					</tr>
+					<tr>
+						<td><input style="width: 90%;" type="text"
+							class="form-control" id="form-control"></td>
+						<td><button type="button" style="margin-left: 0px;"
+								value="Import" class="btn btn-warning" id="btnContactUs">Listen</button></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 17px;"><button type="submit"
+								value="Import" class="btn btn-success" id="btnContactUs">Save</button>
+							<button type="submit" value="Import" class="btn btn-warning"
+								id="btnContactUs">Listen</button></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	<img style="padding-left: 347px;" src="" height="250" width="580" alt="">
+</body>
 </html>
